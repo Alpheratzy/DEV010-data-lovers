@@ -70,7 +70,7 @@ export default{
       "imageUrl": "https://thronesapi.com/assets/images/ned-stark.jpg",
       "born": "263 DC"
     },
-    {
+    /*{
       "id": 7,
       "firstName": "Robert",
       "lastName": "Baratheon",
@@ -79,7 +79,7 @@ export default{
       "family": "House Baratheon",
       "imageUrl": "https://thronesapi.com/assets/images/robert-baratheon.jpeg",
       "born": "262 DC"
-    },
+    },*/
     {
       "id": 8,
       "firstName": "Jamie",
@@ -225,7 +225,7 @@ export default{
       "fullName": "Margaery Tyrell",
       "title": "Queen of the Seven Kingdoms",
       "family": "House Tyrell",
-      "imageUrl": "https://thronesapi.com/assets/images/margaery-tyrell.jpg",
+      "imageUrl": "https://i.imgur.com/OmjNxeq.jpg",
       "born": "283 DC",
       "death":"303 DC"
     },
@@ -236,7 +236,7 @@ export default{
       "fullName": "Ygritte",
       "title": "Spearwife",
       "family": "Free Folk",
-      "imageUrl": "https://thronesapi.com/assets/images/ygritte.jpg",
+      "imageUrl": "https://i.imgur.com/B68GJK2.jpg",
       "born": "280 DC",
       "death": "299 DC"
     },
@@ -535,7 +535,7 @@ export default{
       "fullName": "Qyburn",
       "title": "Former maester of the Citadel",
       "family": "Sorcerers",
-      "imageUrl": "https://thronesapi.com/assets/images/qyburn.jpg",
+      "imageUrl": "https://i.imgur.com/DFMZPb1.jpg",
       "born": null
     },
     {

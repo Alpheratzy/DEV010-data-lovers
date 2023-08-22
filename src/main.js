@@ -148,7 +148,7 @@ familySelection.addEventListener("change", function(){
   })
 
   words.forEach(item => {
-    resultShield.innerHTML+=`<img src="${item.imageUrl}" alt= "House Shield"></img>`
+    resultShield.innerHTML+=`<img class="shield" src="${item.imageUrl}" alt= "House Shield"></img>`
   })
 
   words.forEach(item => {
