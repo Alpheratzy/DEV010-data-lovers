@@ -3,51 +3,58 @@
 import data from './data/got/got.js'; //import dataMotto from "./data/got/motto.js";
 import { filterData, houseFilter, sortData, mottoFilter, calcSurvivors } from './data.js';
 
-//VISUALIZACIÓN Y PAGINACIÓN
-//Constantes necesarias
+//VISUALIZACIÓN
+//Constantes necesarias de los espacios cambiantes de la página.
 
-const container = document.querySelector('.card')
-const previous = document.querySelector('.previous')
-const next = document.querySelector('.next')
-const familySelection = document.getElementById('house')
-const order = document.querySelector('.order')
-const search =document.querySelector('.search')
-const survivorSpan= document.getElementById('survivors')
+const container = document.querySelector('.card')          //Espacio del tablero
+const previous = document.querySelector('.previous')       //botón para desplazar las páginas- anterior
+const next = document.querySelector('.next')               //botón para desplazar las páginas- siguiente
+const familySelection = document.getElementById('house')   //selector, filtro por familia.
+const order = document.querySelector('.order')             //selector, filtro de orden
+const search =document.querySelector('.search')            //campo de búsqueda - input
+const survivorSpan =document.getElementById('survivors')   //span, para el número de sobrevivientes.
 
-
-const elementsArray = data.got.length; //elemtos de la api
-const itemPag = 12;     // cuantos elementos indico en la pagina
-const numPag = Math.ceil(elementsArray / itemPag);        // MATH para redondear, numeros de paginas redondeando hacia arriba
+const elementsArray = data.got.length;                     //Elementos de la api
+const itemPag = 12;                                        // Visualización de cards por página
+const numPag = Math.ceil(elementsArray / itemPag);         // MATH para redondear hacia arriba, los numeros de paginas
 let pagAct = 0; //pagina actual
 
 
-//Eventos de paginación
-// capturar datos de los botone y input
+//EVENTOS ASOCIADOS A FUNCIONES PRINCIPALES
+// Búsqueda
 
-search.addEventListener('keyup', () => { // Registra un evento a un objeto en específico
-  removeChildNodes(container)    // limpiar el container
-  const newArrSearch = filterData(data, search.value.toLowerCase())
-  fetchGots(newArrSearch)// buscar en data, search.value
+search.addEventListener('keyup', () => {                  // Escucha si se escribe en el campo de búsqueda
+  removeChildNodes(container)                             // limpia el campo de búsqueda
+  const newArrSearch = filterData(data, search.value.toLowerCase()) //busca la data
+  fetchGots(newArrSearch)                                // Imprime la data en la página usando la funcion fetchGots
 
-  survivorSpan.textContent =  calcSurvivors(newArrSearch) 
+  survivorSpan.textContent =  calcSurvivors(newArrSearch) //Imprime el número de supervivientes con la función calcSurvivors
 })
 
-familySelection.addEventListener('change', () => { /// filtrar por lista
-  removeChildNodes(container) 
+//Filtrar la data
+
+familySelection.addEventListener('change', () => {        //Escucha al selector cambiar de opción
+  removeChildNodes(container)           
   const newArrFam = houseFilter(data, familySelection.value)
   fetchGots(newArrFam)
 
   survivorSpan.textContent =  calcSurvivors(newArrFam) 
+
 })
 
-order.addEventListener('input', () => {
+//ordenar la data
+
+order.addEventListener('change', () => {                
   removeChildNodes(container)
   const newArrOrder = sortData(data, order.value)
   fetchGots(newArrOrder)
 
-  survivorSpan.textContent =  calcSurvivors(newArrOrder) 
+  survivorSpan.textContent =  calcSurvivors(newArrOrder)
+
 })
 
+// EVENTOS ASOCIADOS A LA PAGINACIÓN
+// Botones que desplazan por las cards
 
 previous.addEventListener('click', () => {  //registra un envento en el objeto
 
@@ -57,6 +64,7 @@ previous.addEventListener('click', () => {  //registra un envento en el objeto
     fetchGots(data);
   }
 })
+
 next.addEventListener('click', () => {
   if (pagAct + 1 < numPag) {
     pagAct++;
@@ -64,6 +72,9 @@ next.addEventListener('click', () => {
     fetchGots(data);
   }
 })
+
+//Organización de las cards en pantalla
+
 function fetchGots(nuevaData) { // funcion para visualizar la data got con condiciones para que no se pasen ni antes ni despues del arary
   let prueba = 0
   if (Math.sign(pagAct) === -1) {  // Math.sign devuelve uno o -1
@@ -114,10 +125,13 @@ function fetchGots(nuevaData) { // funcion para visualizar la data got con condi
         </section>
       </section>`
     }
+
   }
+
 }
 
-//Funcion que conecta con el mensaje con la casa.
+//FUNCIONES EXTRA DE DISEÑO
+//Funcion que cambia el mensaje, el autor de dicho mensaje, el escudo y la historia de la familia.
 
 familySelection.addEventListener("change", function(){
   const selectedHouse =familySelection.value;
@@ -128,14 +142,13 @@ familySelection.addEventListener("change", function(){
   changeColor(selectedHouse)
 
 
-
   //a. limpiar contenidos de los espacios...
   resultsWords.innerHTML = "";
   resultComment.innerHTML= "";
   resultShield.innerHTML = "";
   resultHistory.innerHTML= "";
 
-  const words=mottoFilter.mottoFilterFunction(selectedHouse)
+  const words=mottoFilter.mottoFilterFunction(undefined,selectedHouse)
 
   //b. Pintar la nueva informacion en los espacios...
 
@@ -156,10 +169,9 @@ familySelection.addEventListener("change", function(){
   })
 })
 
-//Cambio del color del background
+//Cambio del color del background por familia.
 
 function changeColor(valueSelector) {
-//  const selectedHouse2 = familySelection.value;
   let mainColor ="";
 
   if (valueSelector === "Baelish" || valueSelector === "Baratheon" || valueSelector === "Clegane"){
@@ -184,8 +196,8 @@ function changeColor(valueSelector) {
 
 }
 
-
-function removeChildNodes(parent) {   // proporcionaste es un fragmento de código en JavaScript que se utiliza para eliminar todos los nodos hijos de un elemento HTML específico.
+//función de limpieza de espacios para ser utilizada por otras funciones. 
+function removeChildNodes(parent) {  
   while (parent.firstChild) {
     parent.removeChild(parent.firstChild)
   }

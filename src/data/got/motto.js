@@ -14,7 +14,7 @@ export default {
         "imageUrl": "https://i.imgur.com/m26pKAX.png",
         "motto": "First in Battle",
         "comment" : "-House Tarly family words",
-        "history": "House Targaryen of King's Landing s a noble family of Valyrian descent who once ruled the Seven Kingdoms of Westeros. The only family of dragonlords who survived the Doom of Valyria, the Targaryens left the Valyrian Freehold twelve years before the Doom. They resided for more than a century at Dragonstone castle on Dragonstone island, until Aegon the Conqueror and his sister-wives, Visenya and Rhaenys, began the first of the Wars of Conquest in 2 BC.",
+        "history": "House Tarly of Horn Hill is a noble house from the Reach. House Tarly has a militarist tradition, and possesses a Valyrian steel sword called Heartsbane.",
     },
     {
         "id": 55,
@@ -54,7 +54,7 @@ export default {
         "imageUrl": "https://i.imgur.com/mumHUku.png",
         "motto": "The World Is Built By Killers... So You Better Get Used To Looking At Them.",
         "comment" : "-Sandor Clegane",
-        "history": "House Clegane is a house of landed knights in the westerlands. They hold fealty to House Lannister of Casterly Rock, and are among their primary bannermen.[1] Their lands are southeast of the Rock and include a towerhouse, which, according to a semi-canon source, is named Clegane's Keep.",
+        "history": "House Clegane is a house of landed knights in the westerlands. They hold fealty to House Lannister of Casterly Rock, and are among their primary bannermen. Their lands are southeast of the Rock and include a towerhouse, which, according to a semi-canon source, is named Clegane's Keep.",
 
     },
     {
@@ -103,7 +103,7 @@ export default {
         "imageUrl": "https://i.imgur.com/9ejKay9.png",
         "motto": "I'm No Lady, Your Grace.",
         "comment":"-Brianne of Tarth",
-        "history":"Tarth, called the Sapphire Isle,[1] is an island in the narrow sea off the eastern coast of Westeros. It is separated from the continent by the Straits of Tarth, and is situated northeast of Shipbreaker Bay. Tarth is considered a part of the stormlands and is ruled from Evenfall Hall by House Tarth. It is sworn to Storm's End.",
+        "history":"Tarth, called the Sapphire Isle, is an island in the narrow sea off the eastern coast of Westeros. It is separated from the continent by the Straits of Tarth, and is situated northeast of Shipbreaker Bay. Tarth is considered a part of the stormlands and is ruled from Evenfall Hall by House Tarth.",
     },   
     {
         "id": 66,
@@ -127,7 +127,7 @@ export default {
         "imageUrl":"https://i.imgur.com/d3qBnNy.png",
         "motto": "Here We Stand",
         "comment": "-House Mormont family words",
-        "history":"House Mormont of Bear Island is a noble house of the north, one of the principal families sworn to House Stark.[2] Their seat is at Bear Island, located in the Bay of Ice northwest of Winterfell. ",
+        "history":"House Mormont of Bear Island is a noble house of the north, one of the principal families sworn to House Stark. Their seat is at Bear Island, located in the Bay of Ice northwest of Winterfell. ",
     },     
     {
         "id": 69,

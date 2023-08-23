@@ -1,55 +1,56 @@
 import data2 from "./data/got/motto.js";
 
-
-export function filterData(data, palabra) {  //funcion buscar
-  const filterlook= data.got.filter(index => index.fullName.toLowerCase().includes(palabra)) //retorna Esto se utiliza para filtrar el arreglo en base a una condición. Se creará un nuevo arreglo con los elementos que cumplan con la condición.
-  return filterlook
-
+//funcion buscar
+export function filterData(data, searchedWord) {  
+  const searchResult= data.got.filter(index => index.fullName.toLowerCase().includes(searchedWord)) //retorna Esto se utiliza para filtrar el arreglo en base a una condición. Se creará un nuevo arreglo con los elementos que cumplan con la condición.
+  return searchResult
 }
 
-export function houseFilter(data, filter) {
-  return data.got.filter(item => item.family.includes(filter));
+//funcion filtrar por familia
+export function houseFilter(data, filter) { 
+  const datafamily= data.got.filter(item => item.family.includes(filter));
+  return datafamily
 }
 
-export const mottoFilter= {
-
-  mottoFilterFunction: function (familyName) {
-    const mottoResult = data2.motto.filter(item=> item.family.includes(familyName));
+//funcion filtrar para información adicional sobre familias.
+export const mottoFilter= { 
+  mottoFilterFunction: function (data = data2, family) {
+    const mottoResult = data.motto.filter(item=> item.family.includes(family));
     return mottoResult
   },
 }
 
+//funcion de ordenar alfabeticamente
 export function sortData(data, order) {
-  const orderData = data;//ca,bie era let por si acaso
-  //console.log(orderData)
-  const prueba = orderData.got.sort((a, b) => {
+  const orderData = data;
+  
+  const try1 = orderData.got.sort((a, b) => {
     const fullNameA = a.fullName.toLowerCase();
     const fullNameB = b.fullName.toLowerCase();
-    //console.log(fullNameA, fullNameB);
+    
     if (fullNameA < fullNameB) {
       return -1;
     }
+
     if (fullNameA > fullNameB) {
       return 1;
     }
 
     return 0;
   });
+
   if (order === 'Ascendente') {
-    // console.log(prueba);
-    return prueba
+    return try1
   }
   if (order === 'Descendente') {
-    //console.log([...prueba].reverse());
-    return [...prueba].reverse()
+    return [...try1].reverse()
   }
-  //console.log(orderData);
 }
 
+//Función de cálculo de sobrevivientes.
 export function calcSurvivors (newArrFam){
-  const totalElements = newArrFam.length; //total de elementos del array
-
-  let death = 0; //contador de muertes
+  const totalElements = newArrFam.length;    //total de elementos del array
+  let death = 0;                            //contador de muertes
   
   for (let i = 0; i < newArrFam.length; i++){
     const item = newArrFam[i]
@@ -58,6 +59,16 @@ export function calcSurvivors (newArrFam){
     }
   }
   const survivors = totalElements - death;
-
   return survivors
 }
+
+
+
+
+
+
+
+
+
+
+
