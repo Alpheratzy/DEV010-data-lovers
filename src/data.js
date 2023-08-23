@@ -47,6 +47,12 @@ export function sortData(data, order) {
   }
 }
 
+//Funcion para ordenar por fecha de nacimiento
+
+export function sortBorn (databorn, bornSelector){
+  //por escribir.... 
+}
+
 //Función de cálculo de sobrevivientes.
 export function calcSurvivors (newArrFam){
   const totalElements = newArrFam.length;    //total de elementos del array

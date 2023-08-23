@@ -1,7 +1,7 @@
 //IMPORTACION DE BASES DE DATOS Y OTROS ARCHIVOS
 
 import data from './data/got/got.js'; //import dataMotto from "./data/got/motto.js";
-import { filterData, houseFilter, sortData, mottoFilter, calcSurvivors } from './data.js';
+import { filterData, houseFilter, sortData, mottoFilter, calcSurvivors, sortBorn} from './data.js';
 
 //VISUALIZACIÓN
 //Constantes necesarias de los espacios cambiantes de la página.
@@ -42,7 +42,7 @@ familySelection.addEventListener('change', () => {        //Escucha al selector 
 
 })
 
-//ordenar la data
+//ordenar la data alfabeticamente
 
 order.addEventListener('change', () => {                
   removeChildNodes(container)
@@ -52,6 +52,15 @@ order.addEventListener('change', () => {
   survivorSpan.textContent =  calcSurvivors(newArrOrder)
 
 })
+
+//ordenar la data por fecha de nacimiento
+
+order.addEventListener('change', () => {
+  if (order.value === "Born") {
+    const OrderBorn= sortBorn(data, order.value) 
+    fetchGots(OrderBorn)
+  }
+} )
 
 // EVENTOS ASOCIADOS A LA PAGINACIÓN
 // Botones que desplazan por las cards
