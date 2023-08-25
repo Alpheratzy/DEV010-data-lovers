@@ -50,7 +50,7 @@ export function sortData(data, order) {
 
 //Funcion para ordenar por fecha de nacimiento
 
-export function sortBorn (databorn){
+export function sortBorn (databorn, selectorBorn){
   const borndate = databorn.got.sort((a, b) => {
     if (a.born === null || a.born === undefined) { //Se me mezclaban los personajes que tenian null o undefined en medio de las fechas
       return 1; // Mover a 'a' al final del arreglo
@@ -58,9 +58,17 @@ export function sortBorn (databorn){
     if (b.born === null || b.born === undefined) {
       return -1; // Mover a 'b' al final del arreglo
     }
+    
     const firstBorn = parseInt(a.born);
     const secondBorn = parseInt(b.born);
-    return firstBorn - secondBorn;
+
+    if (selectorBorn === "Olders" ){
+      return firstBorn - secondBorn;
+    } 
+    
+    else if (selectorBorn === "Youngs"){
+      return secondBorn - firstBorn ;
+    }
   });
   return borndate
 }
