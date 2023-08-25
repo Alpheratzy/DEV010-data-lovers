@@ -274,7 +274,7 @@ export default{
       "id": 26,
       "firstName": "Viserys",
       "lastName": "Targaryen",
-      "fullName": "Viserys Targaryn",
+      "fullName": "Viserys Targaryen",
       "title": "King Viserys III, in the exile",
       "family": "Targaryen",
       "imageUrl": "https://thronesapi.com/assets/images/viserys-targaryan.jpg",

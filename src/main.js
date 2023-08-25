@@ -56,7 +56,7 @@ order.addEventListener('change', () => {
 //ordenar la data por fecha de nacimiento
 
 order.addEventListener('change', () => {
-  if (order.value === "Born") {
+  if (order.value === "Olders" || order.value === "Youngs") {
     const OrderBorn= sortBorn(data, order.value) 
     fetchGots(OrderBorn)
   }

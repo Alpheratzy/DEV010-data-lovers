@@ -1,3 +1,4 @@
+import got from "./data/got/got.js";
 import data2 from "./data/got/motto.js";
 
 //funcion buscar
@@ -24,7 +25,7 @@ export const mottoFilter= {
 export function sortData(data, order) {
   const orderData = data;
   
-  const try1 = orderData.got.sort((a, b) => {
+  const ascent = orderData.got.sort((a, b) => {
     const fullNameA = a.fullName.toLowerCase();
     const fullNameB = b.fullName.toLowerCase();
     
@@ -40,17 +41,28 @@ export function sortData(data, order) {
   });
 
   if (order === 'Ascendente') {
-    return try1
+    return ascent
   }
   if (order === 'Descendente') {
-    return [...try1].reverse()
+    return [...ascent].reverse()
   }
 }
 
 //Funcion para ordenar por fecha de nacimiento
 
-export function sortBorn (databorn, bornSelector){
-  //por escribir.... 
+export function sortBorn (databorn){
+  const borndate = databorn.got.sort((a, b) => {
+    if (a.born === null || a.born === undefined) { //Se me mezclaban los personajes que tenian null o undefined en medio de las fechas
+      return 1; // Mover a 'a' al final del arreglo
+    }
+    if (b.born === null || b.born === undefined) {
+      return -1; // Mover a 'b' al final del arreglo
+    }
+    const firstBorn = parseInt(a.born);
+    const secondBorn = parseInt(b.born);
+    return firstBorn - secondBorn;
+  });
+  return borndate
 }
 
 //Función de cálculo de sobrevivientes.
