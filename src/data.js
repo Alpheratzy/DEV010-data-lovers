@@ -1,4 +1,3 @@
-import got from "./data/got/got.js";
 import data2 from "./data/got/motto.js";
 
 //funcion buscar

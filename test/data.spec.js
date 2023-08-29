@@ -1,4 +1,4 @@
-import { filterData,houseFilter,mottoFilter,sortData,calcSurvivors} from '../src/data.js';
+import { filterData,houseFilter,mottoFilter,sortData,calcSurvivors, sortBorn} from '../src/data.js';
 
 describe('funcion filterData', () => {
   it('is a function', () => {
@@ -333,20 +333,153 @@ describe('calcSurvivors', () => {
   });
 });
 
+//Test para la función ordenar por año de nacimiento
 
-/*it('returns `anotherExample`', () => {
-    expect(anotherExample()).toBe('OMG');
-  });*/
+//sortBorn es una función?
 
-
-
-
-/*describe('anotherExample', () => {
+describe ('funcion sortBorn', () => { 
   it('is a function', () => {
-    expect(typeof anotherExample).toBe('function');
+    expect(typeof sortBorn).toBe('function');
   });
+})
 
-  it('returns `anotherExample`', () => {
-    expect(anotherExample()).toBe('OMG');
-  });
-});*/
+//sortBorn hace lo que se supone que haga?
+
+describe ("sortBorn", () => {
+  const sample = {
+    "got":[
+      {
+        "id": 21,
+        "firstName": "Margaery",
+        "lastName": "Tyrell",
+        "fullName": "Margaery Tyrell",
+        "title": "Queen of the Seven Kingdoms",
+        "family": "House Tyrell",
+        "imageUrl": "https://i.imgur.com/OmjNxeq.jpg",
+        "born": "283 DC",
+        "death":"303 DC"
+      },
+      {
+        "id": 18,
+        "firstName": "Stannis",
+        "lastName": "Baratheon",
+        "fullName": "Stannis Baratheon",
+        "title": "Lord of Dragonstone",
+        "family": "House Baratheon",
+        "imageUrl": "https://thronesapi.com/assets/images/stannis.jpg",
+        "born": "265 AL"
+      },
+      {
+        "id": 19,
+        "firstName": "Varys",
+        "lastName": "Unknown",
+        "fullName": "Varys",
+        "title": "Master of Whisperers",
+        "family": "King's council",
+        "imageUrl": "https://thronesapi.com/assets/images/varys.jpg",
+        "born": null
+      },
+      {
+        "id": 20,
+        "firstName": "Khal",
+        "lastName": "Drogo",
+        "fullName": "Khal Drogo",
+        "title": "Khal",
+        "family": "House Targaryen",
+        "imageUrl": "https://thronesapi.com/assets/images/khal-drogo.jpg",
+        "born": "268 DC",
+        "death": "298 DC"
+      },
+    ]}
+  it ('sort by Olders', () => {
+    const order ='Olders'
+    expect(sortBorn (sample, order)).toEqual( [{
+      "id": 18,
+      "firstName": "Stannis",
+      "lastName": "Baratheon",
+      "fullName": "Stannis Baratheon",
+      "title": "Lord of Dragonstone",
+      "family": "House Baratheon",
+      "imageUrl": "https://thronesapi.com/assets/images/stannis.jpg",
+      "born": "265 AL"
+    },
+    {
+      "id": 20,
+      "firstName": "Khal",
+      "lastName": "Drogo",
+      "fullName": "Khal Drogo",
+      "title": "Khal",
+      "family": "House Targaryen",
+      "imageUrl": "https://thronesapi.com/assets/images/khal-drogo.jpg",
+      "born": "268 DC",
+      "death": "298 DC"
+    },
+    {
+      "id": 21,
+      "firstName": "Margaery",
+      "lastName": "Tyrell",
+      "fullName": "Margaery Tyrell",
+      "title": "Queen of the Seven Kingdoms",
+      "family": "House Tyrell",
+      "imageUrl": "https://i.imgur.com/OmjNxeq.jpg",
+      "born": "283 DC",
+      "death":"303 DC"
+    },
+    {
+      "id": 19,
+      "firstName": "Varys",
+      "lastName": "Unknown",
+      "fullName": "Varys",
+      "title": "Master of Whisperers",
+      "family": "King's council",
+      "imageUrl": "https://thronesapi.com/assets/images/varys.jpg",
+      "born": null
+    }
+    ])}
+  )
+  it ('sort by youngs', () => {
+    const order ='Youngs'
+    expect(sortBorn (sample, order)).toEqual( [{
+      "id": 21,
+      "firstName": "Margaery",
+      "lastName": "Tyrell",
+      "fullName": "Margaery Tyrell",
+      "title": "Queen of the Seven Kingdoms",
+      "family": "House Tyrell",
+      "imageUrl": "https://i.imgur.com/OmjNxeq.jpg",
+      "born": "283 DC",
+      "death":"303 DC"
+    },
+    {
+      "id": 20,
+      "firstName": "Khal",
+      "lastName": "Drogo",
+      "fullName": "Khal Drogo",
+      "title": "Khal",
+      "family": "House Targaryen",
+      "imageUrl": "https://thronesapi.com/assets/images/khal-drogo.jpg",
+      "born": "268 DC",
+      "death": "298 DC"
+    },
+    {
+      "id": 18,
+      "firstName": "Stannis",
+      "lastName": "Baratheon",
+      "fullName": "Stannis Baratheon",
+      "title": "Lord of Dragonstone",
+      "family": "House Baratheon",
+      "imageUrl": "https://thronesapi.com/assets/images/stannis.jpg",
+      "born": "265 AL"
+    },
+    {
+      "id": 19,
+      "firstName": "Varys",
+      "lastName": "Unknown",
+      "fullName": "Varys",
+      "title": "Master of Whisperers",
+      "family": "King's council",
+      "imageUrl": "https://thronesapi.com/assets/images/varys.jpg",
+      "born": null
+    }
+    ])})
+})
