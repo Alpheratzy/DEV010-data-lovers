@@ -1,11 +1,17 @@
 import { filterData,houseFilter,mottoFilter,sortData,calcSurvivors, sortBorn} from '../src/data.js';
 
+//Test de la función FilterData 
+
+//FilterData es una función?
+
 describe('funcion filterData', () => {
   it('is a function', () => {
     expect(typeof filterData).toBe('function');
   });
 
-  it('returns si la funcion se cumple', () => {
+  //filterData es capaz de filtrar lo que el usuario decida?
+
+  it('returns if the function works', () => {
     const data={
       "got":[
         {
@@ -53,13 +59,19 @@ describe('funcion filterData', () => {
   });
 });
 
+//Test para la función houseFilter
+
+//houseFilter es una función?
+
 describe('funcion houseFilter', () => {
   it('is a function', () => {
     expect(typeof houseFilter).toBe('function');
   });
 });
 
-it('returns lo que tiene en houseFilter', () => {
+//houseFilter devuelve la información filtrada correctamente?
+
+it('returns the filtered data', () => {
   const data= { "got":[{
     "id": 6,
     "firstName": "Ned",
@@ -102,6 +114,7 @@ it('returns lo que tiene en houseFilter', () => {
     "born": "262 DC",
     "death": "305 DC"
   },]}
+
   const filter="Lannister"
   expect(houseFilter(data, filter)).toEqual([{
     "id": 8,
@@ -128,11 +141,15 @@ it('returns lo que tiene en houseFilter', () => {
   }]);
 });
 
+//Es mottoFilter un objeto? 
+
 describe('mottoFilter', () => {
 
   it('should be an object', () => {
     expect(typeof mottoFilter).toBe("object");
   });
+
+  //Es mottoFilterFunction una función?
 
   describe('mottoFilter.mottoFilterFunction', () => {
 
@@ -140,7 +157,10 @@ describe('mottoFilter', () => {
       expect(typeof mottoFilter.mottoFilterFunction).toBe('function');
     });
   });
-  it('retorne lo que tiene mottoFilter', () => {
+
+  //mottoFilter retorna lo esperado?
+
+  it('return the filtered data', () => {
     const mottoResult= { "motto":[
       {
         "id": 53,
@@ -166,6 +186,7 @@ describe('mottoFilter', () => {
         "comment" : "-House Stark family words",
         "history": "House Stark of Winterfell is one of the Great Houses of Westeros and the principal noble house of the north. In days of old they ruled as Kings of Winter, but since Aegon's Conquest they have been Wardens of the North and ruled as Lords of Winterfell. Their seat, Winterfell, is an ancient castle renowned for its strength."
       },]}
+
     const g="House Tarly"
     expect(mottoFilter.mottoFilterFunction(mottoResult ,g)).toEqual([{
       "id": 54,
@@ -179,11 +200,17 @@ describe('mottoFilter', () => {
   });
 });
 
+// Tests para la función sortData
+
+//Es sortData una función?
+
 describe('sortData', () => {
   it('is a function', () => {
     expect(typeof sortData).toBe('function');
   });
 });
+
+//sort data es capaz de ordenar la data, por orden alfabetico?
 
 describe('sortData', () => {
   const data = {
@@ -219,8 +246,8 @@ describe('sortData', () => {
       "born": "284 DC"
     },]
   }
-  it('ordenar de forma ascendente', () => {
-    const order ='Ascendente'
+  it('Order A-Z', () => {
+    const order ='Ascendent'
     expect(sortData (data, order)).toEqual( [{
       "id": 32,
       "firstName": "Gendry",
@@ -253,8 +280,8 @@ describe('sortData', () => {
       "born": "291 DC"
     },])
   })
-  it('ordenar de forma descendente', () => {
-    const order ='Descendente'
+  it('Order Z-A', () => {
+    const order ='Descendent'
     expect(sortData (data, order)).toEqual( [{
       "id": 31,
       "firstName": "Tommen",
@@ -289,13 +316,18 @@ describe('sortData', () => {
   })
 })
 
+//Test de la función calcSurvivors
 
+//calcSurvivors es una función?
 
 describe('calcSurvivors', () => {
   it('is a function', () => {
     expect(typeof calcSurvivors).toBe('function');
   });
-  it('returns `calcSurvivors`', () => {
+
+  //calcSurvivors calcula los sobrevivientes?
+
+  it('returns number of survivors', () => {
     const newArrFam= 
     [{
       "id": 34,

@@ -39,10 +39,10 @@ export function sortData(data, order) {
     return 0;
   });
 
-  if (order === 'Ascendente') {
+  if (order === 'Ascendent') {
     return ascent
   }
-  if (order === 'Descendente') {
+  if (order === 'Descendent') {
     return [...ascent].reverse()
   }
 }

@@ -86,7 +86,13 @@ Las 53 tarjetas de personaje son negras,  y contienen las fotos de los personaje
     
     Ofrece la oportunidad al usuario de ordenar alfabeticamente la data de forma ascendente o descendente.
 
-4. Función Sobrevivientes:
+4. Función de Ordenado por fecha de nacimiento. 
+
+    Disponible en el navegador principal a través de un selector. 
+
+    Ofrece la oportunidad al usuario de ordenar los personajes de mayor edad a menor edad, y viceversa, dejando de últimos aquellos personajes que se desconoce su su fecha de nacimiento. 
+
+5. Función Sobrevivientes:
 
     Disponible en todas las pantallas del website. En la parte baja del tablero.
     
@@ -96,29 +102,71 @@ Las 53 tarjetas de personaje son negras,  y contienen las fotos de los personaje
 
 # test 
 
-Se realizaron 12 test con el proposito de verificar y validar el funcionamiento del codigo de data.js,  que nos permitieron detectar errores antes de finalizar el proyecto. 
-
-En total se realizaron 12 test, que evaluaron:
+En total se realizaron 15 test al archivo data.js, que:
 
 1. Verificaron que las funciones existían.
 2. Verificaron que las funciones retornaban lo que se esperaba. 
-3. Verificaron si existían los objetos.
-4. Verificaron que las condiciones se cumplían.
-5. Que los ciclos funcionaban correctamente. 
-6. Y que las operaciones retornaban los resultados esperados.
+3. Verificaron si existían los objetos asociados.
 
  Dichos test imprimieron los siguientes resultados:
 
+Scanned 1 files, no errors found (14 ms).
 
-File          | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s                                                       
+> data-lovers@1.0.0 test
+> jest --verbose --coverage
+
+ PASS  test/data.spec.js                                                                                       
+  √ returns the filtered data (1 ms)
+  
+  funcion filterData                                                                                    
+    √ is a function (2ms)     
+
+    √ returns if the function works (1ms)  
+
+  funcion houseFilter                                                                                          
+    √ is a function (1ms)
+
+  mottoFilter                                                                                                  
+    √ should be an object
+
+    √ return the filtered data (3 ms) 
+
+    mottoFilter.mottoFilterFunction                                                                            
+      √ function (1 ms) 
+
+  sortData                                                                                                     
+    √ is a function 
+
+    √ Order A-Z (1 ms) 
+
+    √ Order Z-A   
+
+  calcSurvivors                                                                                                
+    √ is a function  
+
+    √ returns number of survivors (1 ms)
+
+  funcion 
+  sortBorn                                                                                             
+    √ is a function
+
+  sortBorn                                                                                                     
+    √ sort by Olders (1 ms) 
+
+    √ sort by youngs (1 ms)  
+
+                                                                                     
+--------------|---------|----------|---------|---------|-------------------                                    
+File          | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s                                     
 --------------|---------|----------|---------|---------|-------------------
-All files     |   96.96 |    76.92 |     100 |   96.55 | 
- src          |   96.96 |    76.92 |     100 |   96.55 | 
-  data.js     |   96.96 |    76.92 |     100 |   96.55 | 37
+All files     |   95.45 |       80 |     100 |      95 | 
+ src          |   95.45 |       80 |     100 |      95 | 
+  data.js     |   95.45 |       80 |     100 |      95 | 39,58
  src/data/got |       0 |        0 |       0 |       0 | 
   motto.js    |       0 |        0 |       0 |       0 | 
---------------|---------|----------|---------|---------|------------------- 
-
-
-
- 
+--------------|---------|----------|---------|---------|-------------------
+Test Suites: 1 passed, 1 total
+Tests:       15 passed, 15 total
+Snapshots:   0 total
+Time:        0.972 s, estimated 1 s
+Ran all test suites.
